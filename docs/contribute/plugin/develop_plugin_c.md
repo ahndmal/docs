@@ -117,10 +117,10 @@ WasmEdge_Result HostFuncSub(void *Data,
     WasmEdge_String FuncName;
     WasmEdge_FunctionTypeContext *FType;
     WasmEdge_FunctionInstanceContext *FuncCxt;
-    enum WasmEdge_ValType ParamTypes[2], ReturnTypes[1];
-    ParamTypes[0] = WasmEdge_ValType_I32;
-    ParamTypes[1] = WasmEdge_ValType_I32;
-    ReturnTypes[0] = WasmEdge_ValType_I32;
+    WasmEdge_ValType ParamTypes[2], ReturnTypes[1];
+    ParamTypes[0] = WasmEdge_ValTypeGenI32();
+    ParamTypes[1] = WasmEdge_ValTypeGenI32();
+    ReturnTypes[0] = WasmEdge_ValTypeGenI32();
 
     /* Create and add the host function instances into the module instance. */
     FType = WasmEdge_FunctionTypeCreate(ParamTypes, 2, ReturnTypes, 1);
